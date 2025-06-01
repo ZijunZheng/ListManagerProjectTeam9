@@ -1,5 +1,5 @@
 # List Manager Web App
----
+
 Members:
 -Gerry Summers
 -Jim Zheng
