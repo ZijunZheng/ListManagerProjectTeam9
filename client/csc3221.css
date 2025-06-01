@@ -69,7 +69,7 @@ p {margin-top: 0;}
 
 a {color: darkturquoise; }
 a:hover {color: darkturquoise; }
-    
+
 button,
 input[type="submit"],
 input[type="reset"],
@@ -142,9 +142,9 @@ select {
   border-radius: 0.4px;
 }
 textarea {
-    min-height: 6.5rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
+  min-height: 6.5rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -164,10 +164,21 @@ legend {
   margin-bottom: .5rem;
   font-weight: 600;
 }
+
 fieldset {
-  padding: 0;
-  border-width: 0;
+  padding: 2rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
 }
+
+legend {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  padding: 0 10px;
+}
+
 input[type="checkbox"],
 input[type="radio"] {
   display: inline;
@@ -235,12 +246,12 @@ form {
   box-sizing: border-box;
 }
 .preset {
-	font-family: "Courier New", monospace;
-	white-space: pre;
+  font-family: "Courier New", monospace;
+  white-space: pre;
 }
 .pull-right {float: right;}
 .pull-left {float: left;}
-  
+
 /* @ Media elements */
 /* For devices larger than 400px */
 @media (min-width: 400px) {
