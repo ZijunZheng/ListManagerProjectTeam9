@@ -140,6 +140,7 @@ select {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 0.4px;
+  width: 100%;
 }
 textarea {
   min-height: 6.5rem;
@@ -268,4 +269,15 @@ form {
   h4 { font-size: 2.8rem; }
   h5 { font-size: 2.4rem; }
   h6 { font-size: 2.0rem; }
+}
+
+.result {
+  margin-top: 20px;
+  padding: 2rem;
+  background-color: #fafafa;        
+  border: 2px solid #ddd;            
+  border-radius: 5px;                
+  min-height: 100px;
+  font-size: 1.6rem;                 
+  color: #333;                      
 }
