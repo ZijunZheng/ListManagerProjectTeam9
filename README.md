@@ -1,9 +1,9 @@
 # List Manager Web App
 
 Members:
--Gerry Summers
--Jim Zheng
--Thomas Robertson
+- Gerry Summers
+- Jim Zheng
+- Thomas Robertson
 
 <hr>
 
