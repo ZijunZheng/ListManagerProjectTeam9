@@ -281,3 +281,21 @@ form {
   font-size: 1.6rem;                 
   color: #333;                      
 }
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.actions {
+  display: none;
+  gap: 8px;
+}
+
+.list-item:hover .actions {
+  display: flex;
+}

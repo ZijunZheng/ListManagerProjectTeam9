@@ -4,34 +4,39 @@ let theList = [];
 const result = document.querySelector(".result");
 const input = document.querySelector("#listitem");
 const addButton = document.querySelector(".add-btn");
-const delButton = document.querySelector(".del-btn");
 
 addButton.addEventListener("click", httpPost);
-delButton.addEventListener("click", httpDelete);
 
 /* Show list in UI with edit options */
 function ShowList() {
   let output = "<ul>";
   theList.forEach((item, index) => {
     output += `
-      <li>
+      <li class="list-item">
         <span class="item-text" data-index="${index}">${item}</span>
-        <button class="edit-btn" data-index="${index}">Edit</button>
+        <div class="actions">
+          <button class="edit-btn" data-index="${index}">Edit</button>
+          <button class="delete-btn" data-index="${index}">Delete</button>
+        </div>
       </li>`;
   });
   output += "</ul>";
   result.innerHTML = output;
 
-  // Re-attach edit button listeners
-  document.querySelectorAll(".edit-btn").forEach(button => {
-    button.addEventListener("click", enableEdit);
-  });
+  // Attach listeners to new buttons
+  document.querySelectorAll(".edit-btn").forEach(btn =>
+    btn.addEventListener("click", enableEdit)
+  );
 
-  // Also allow clicking the text itself to edit
-  document.querySelectorAll(".item-text").forEach(span => {
-    span.addEventListener("click", enableEdit);
-  });
+  document.querySelectorAll(".delete-btn").forEach(btn =>
+    btn.addEventListener("click", handleDelete)
+  );
+
+  document.querySelectorAll(".item-text").forEach(span =>
+    span.addEventListener("click", enableEdit)
+  );
 }
+
 
 /* Fetch list from server */
 async function GetList() {
@@ -65,14 +70,15 @@ async function httpPost(e) {
   await WriteList();
 }
 
-/* Delete last item */
-async function httpDelete(e) {
-  e.preventDefault();
-  if (theList.length > 0) {
-    theList.pop();
+/* Delete item */
+async function handleDelete(e) {
+  const index = e.target.getAttribute("data-index");
+  if (index !== null) {
+    theList.splice(index, 1);
     await WriteList();
   }
 }
+
 
 /* Edit handler */
 function enableEdit(e) {
@@ -89,11 +95,9 @@ function enableEdit(e) {
 // Initial Load
 async function main() {
   addButton.disabled = true;
-  delButton.disabled = true;
   result.innerHTML = "Loading...";
   await GetList();
   addButton.disabled = false;
-  delButton.disabled = false;
 }
 
 main();  
